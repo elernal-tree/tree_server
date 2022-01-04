@@ -17,6 +17,5 @@ app.get('/api/core', async (req, res) => {
    }
 });
 
-
 const sever = createServer(app);
-sever.listen('8080');
+sever.listen('5006');
