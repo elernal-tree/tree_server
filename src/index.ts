@@ -11,17 +11,16 @@ app.get("/api/core", async (req, res) => {
  
   try {
     const commitRes = await axios.get(
-      "https://gitee.com/api/v5/repos/shanzhaikabi/elernal-tree/commits",{
+      "https://gitee.com/api/v5/repos/shanzhaikabi/elernal-tree/branches/release",{
           timeout: 10000
       }
     );
-    const data = commitRes.data;
-    const lastCommit = data[0];
+    const lastSha = commitRes.data.commit.sha;
     let json = [];
-    if (sha != lastCommit.sha) {
-      sha = lastCommit.sha;
+    if (sha != lastSha) {
+      sha = lastSha;
       const res = await axios.get(
-        `https://gitee.com/shanzhaikabi/elernal-tree/raw/${lastCommit.sha}/data/core.json`, {
+        `https://gitee.com/shanzhaikabi/elernal-tree/raw/${sha}/data/core.json`, {
             timeout: 10000
         }
       );
