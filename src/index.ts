@@ -16,8 +16,10 @@ app.get("/api/core", async (req, res) => {
       }
     );
     const lastSha = commitRes.data.commit.sha;
+    console.log(sha, 'sha', lastSha);
     let json = [];
     if (sha != lastSha) {
+      console.log(lastSha);
       sha = lastSha;
       const res = await axios.get(
         `https://gitee.com/shanzhaikabi/elernal-tree/raw/${sha}/data/core.json`, {
