@@ -20,7 +20,7 @@ function setCore(json) {
 app.get("/api/core", async (req, res) => {
   try {
     const commitRes = await axios.get(
-      "https://gitee.com/api/v5/repos/shanzhaikabi/elernal-tree/branches/master",
+      "https://gitee.com/api/v5/repos/shanzhaikabi/elernal-tree/branches/release",
       {
         timeout: 10000,
       }
